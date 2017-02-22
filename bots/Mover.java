@@ -16,4 +16,33 @@ class Mover {
         // Set sail!
         game.setSail(aircraft, sailOptions.get(0));
     }
+    
+    
+    
+     /**
+     * Moves the aircraft towards the destination.
+     *
+     * @param aircraft - the aircraft to move
+     * @param targets - a list of target thet we want to go to the closer of them
+     * @param game - the current game state
+     *
+     *return - if aircraft moved
+     *
+     */
+    static <T extends MapObject> boolean moveAircraftToCloser(Aircraft aircraft, List<T> targets, PirateGame game)
+    {   
+        //first closer location is null location
+        Location closer = null;
+        for(T target:targets)
+        {
+            if(closer==null || aircraft.distance(closer)>aircraft.distance(target))
+                closer = target.getLocation();
+        }
+        
+        if(closer==null)//no targets
+            return false;
+        
+        moveAircraft(aircraft,closer,game);
+        return true;
+   }
 }
