@@ -2,7 +2,7 @@ package bots;
 import pirates.*;
 
 class Attacker {
-	/**
+    /**
     * Makes the pirate try to attack. Returns true if it did.
     *
     * @param pirate - the attacking pirate
