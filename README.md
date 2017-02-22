@@ -1,2 +1,3 @@
 # Hubert-Blaine-Wonderlofmenhancenmanon
-הקוד קורס כרגע
+- current_code את הקוד האחרון באתר תעלו ל
+- את הקוד שאתם שיניתם \ הוספתם תוסיפו לתיקייה שלכם
