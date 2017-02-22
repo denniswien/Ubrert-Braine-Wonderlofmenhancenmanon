@@ -20,6 +20,6 @@ Make sure you merge with the master branch, and then create the request:
 
 ![alt tag](http://www.interload.co.il/upload/8002811.PNG)
 
-When the request will be approved and accepted by everybody, it will be merged to the "master" branch where
+When the request is approved and accepted by everybody, it will be merged to the "master" branch where
 
 the latest code is.
