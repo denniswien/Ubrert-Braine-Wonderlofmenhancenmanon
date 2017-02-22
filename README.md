@@ -22,3 +22,7 @@ Make sure you merge with the master branch, and then create the request:
 
 
 Finally, "Squash and merge" when you are ready. Changes will be updated in the "master" branch where the latest code is.
+
+Dont forget to delete your temporary branch by going to "branches" 
+
+![alt tag](http://www.interload.co.il/upload/2671643.PNG)
