@@ -4,7 +4,7 @@
 
 ![alt tag](http://www.interload.co.il/upload/8520608.PNG)
 
-Make sure you are in the branch you opened. And edit the file you want
+Make sure you are in the branch you opened. And choose the file you want to edit
 
 ![alt tag](http://www.interload.co.il/upload/7158731.PNG)
 
@@ -12,7 +12,7 @@ Then edit the file and commit. Dont forget to leave a comment
 
 ![alt tag](http://www.interload.co.il/upload/6413548.PNG)
 
-Open a pull request
+Next, open a pull request
 
 ![alt tag](http://www.interload.co.il/upload/7611377.PNG)
 
