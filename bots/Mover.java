@@ -29,20 +29,43 @@ class Mover {
      *return - if aircraft moved
      *
      */
-    static <T extends MapObject> boolean moveAircraftToCloser(Aircraft aircraft, List<T> targets, PirateGame game)
+    
+    //TODO: Think of a shorter name
+    static <T extends MapObject> boolean moveAircraftToClosest(Aircraft aircraft, List<T> targets, PirateGame game)
     {   
         //first closer location is null location
-        Location closer = null;
+        Location closest = null;
         for(T target:targets)
         {
-            if(closer==null || aircraft.distance(closer)>aircraft.distance(target))
-                closer = target.getLocation();
+            if(closest==null || aircraft.distance(closest)>aircraft.distance(target))
+                closest = target.getLocation();
         }
         
-        if(closer==null)//no targets
+        if(closest==null || aircraft.distance(closest)==0)//no targets or Aircraft not need to move
             return false;
         
-        moveAircraft(aircraft,closer,game);
+        moveAircraft(aircraft,closest,game);
         return true;
    }
+    
+    
+    
+    //TODO: Think of a shorter name
+    static <T extends MapObject> boolean moveAircraftToClosestToAnotherMapObject(Aircraft aircraft, List<T> targets, MapObject mapObject,PirateGame game)
+    {   
+        //first closer location is null location
+        Location closest = null;
+        for(T target:targets)
+        {
+            if(closest==null || mapObject.distance(closest)>mapObject.distance(target))
+                closest = target.getLocation();
+        }
+        
+        if(closest==null || aircraft.distance(closest)==0)//no targets or Aircraft not need to move
+            return false;
+        
+        moveAircraft(aircraft,closest,game);
+        return true;
+   }
+    
 }
