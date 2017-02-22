@@ -1,2 +1,2 @@
 # Hubert-Blaine-Wonderlofmenhancenmanon
-readme example
+הקוד קורס כרגע
