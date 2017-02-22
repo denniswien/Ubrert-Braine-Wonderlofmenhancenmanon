@@ -19,6 +19,7 @@ public class MyBot implements PirateBot {
             initFirstTurn();
         }
 
+        history.update(game);
         Strategy strategy = decideStrategy().doTurn(history);
     }
 
