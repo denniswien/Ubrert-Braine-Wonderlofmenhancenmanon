@@ -15,7 +15,7 @@ public class MyBot implements PirateBot {
     }
 
     private boolean firstTurn(PirateGame game) {
-        return game.getTurn() == 0;
+        return game.getTurn() == 1;
     }
 
     private void initFirstTurn() {
@@ -32,5 +32,6 @@ public class MyBot implements PirateBot {
         if (game.getMyCities().size() > 0 && game.getEnemyCities().size() > 0){
             return new SpecialStrategy();
         }
+        return null;
     }
 }
