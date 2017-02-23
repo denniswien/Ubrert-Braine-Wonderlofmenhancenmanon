@@ -9,20 +9,20 @@ public class MyBot implements PirateBot {
 
     @Override
     public void doTurn(PirateGame game) {
-        if(firstTurn()) initFirstTurn();
+        if(firstTurn(game)) initFirstTurn();
         history.update(game);
-        strategy = decideStrategy().doTurn(history);
+        decideStrategy(game).doTurn(history);
     }
 
-    private boolean firstTurn() {
-        return game.getTurnNumber() == 0;
+    private boolean firstTurn(PirateGame game) {
+        return game.getTurn() == 0;
     }
 
     private void initFirstTurn() {
         history = new History();
     }
 
-    private Strategy decideStrategy(History history) {
+    private Strategy decideStrategy(PirateGame game) {
         if (game.getEnemyCities().size() == 0){
             return new AttackStrategy();
         }
