@@ -17,7 +17,7 @@ class Attacker {
                 // Fire!
                 game.attack(pirate, enemy);
                 // Print a message
-                game.debug("pirate " + pirate + " attacks merge_test" + enemy);
+                game.debug("pirate " + pirate + " attacks " + enemy);
                 // Did attack
                 return true;
             }
