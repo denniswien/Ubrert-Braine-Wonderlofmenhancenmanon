@@ -9,7 +9,7 @@ import java.math
 
 
 class SpecialStrategy implements Strategy {
-
+    //TODO: %2 to every move
     public void doTurn(PirateGame game, History history) {
         game.debug("Activated: SpecialStrategy");
         List<Pirate> myLivingPirates = game.getMyLivingPirates();
