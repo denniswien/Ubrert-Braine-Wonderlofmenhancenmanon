@@ -1,6 +1,6 @@
 package bots;
 import pirates.*;
 
-class SpecialStrategy {
-
+class SpecialStrategy implements Strategy {
+    public void doTurn(History history) {}
 }
