@@ -6,13 +6,12 @@ import pirates.*;
  */
 public class MyBot implements PirateBot {
     private History history;
-    private Strategy strategy;
 
     @Override
     public void doTurn(PirateGame game) {
         if(firstTurn()) initFirstTurn();
         history.update(game);
-        strategy.doTurn();
+        strategy = decideStrategy().doTurn(history);
     }
 
     private boolean firstTurn() {
@@ -20,7 +19,7 @@ public class MyBot implements PirateBot {
     }
 
     private void initFirstTurn() {
-        strategy = decideStrategy();
+        history = new History();
     }
 
     private Strategy decideStrategy(History history) {
@@ -30,7 +29,7 @@ public class MyBot implements PirateBot {
         if (game.getMyCities().size() == 0){
             return new DefendStrategy();
         }
-        if (game.getMyCities().size() > && game.getEnemyCities().size() > 0){
+        if (game.getMyCities().size() > 0 && game.getEnemyCities().size() > 0){
             return new SpecialStrategy();
         }
     }
