@@ -2,36 +2,36 @@ package bots;
 import pirates.*;
 
 /**
- * This is an example for a bot.
+ * Agada bot :)
  */
 public class MyBot implements PirateBot {
     private History history;
 
-    /**
-     * Makes the bot run a single turn
-     *
-     * @param game - the current game state.
-     * 
-     */
     @Override
     public void doTurn(PirateGame game) {
-        if(firstTurn()) {
-            initFirstTurn();
-        }
-
+        if(firstTurn(game)) initFirstTurn();
         history.update(game);
-        Strategy strategy = decideStrategy().doTurn(history);
+        decideStrategy(game).doTurn(history);
     }
 
-    private boolean firstTurn() {
-        return game.getTurnNumber() == 0;
+    private boolean firstTurn(PirateGame game) {
+        return game.getTurn() == 1;
     }
 
     private void initFirstTurn() {
         history = new History();
-        //TODO(implement): (for heuristic strategy) add measurements 2017-02-22 20:07:12 (amit)
     }
 
-    private Strategy decideStrategy(History history) {}
+    private Strategy decideStrategy(PirateGame game) {
+        if (game.getEnemyCities().size() == 0){
+            return new AttackStrategy();
+        }
+        if (game.getMyCities().size() == 0){
+            return new DefendStrategy();
+        }
+        if (game.getMyCities().size() > 0 && game.getEnemyCities().size() > 0){
+            return new SpecialStrategy();
+        }
+        return null;
+    }
 }
-
