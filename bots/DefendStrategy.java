@@ -1,7 +1,7 @@
 package bots;
 
 import java.util.*;
-import pirates.game.*;
+import pirates.*;
 /*import java.lang.Math
 import java.lang.reflect
 import java.lang.class
