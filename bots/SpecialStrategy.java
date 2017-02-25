@@ -44,18 +44,8 @@ class SpecialStrategy implements Strategy {
     }
 
     private void updateIslandsStatus(PirateGame game) {
-        howManyIslandsOurscounter = 0;
-        howManyIslandsEnemyscounter = 0;
-        howManyIslandsNonescounter = 0;
-        for (int j = 0; j < game.getAllIslands().size(); j++) {
-            Player p = game.getAllIslands().get(j).owner;
-            if (p.id == 1) {
-                howManyIslandsOurscounter++;
-            }
-            if (p.id == -1) {
-                howManyIslandsNonescounter++;
-            }
-            if (p.id == 0) {
-                howManyIslandsEnemyscounter++;
-            }
-        }
+        howManyIslandsOurscounter = game.getMyIslands().size();
+        howManyIslandsEnemyscounter = game.getEnemyIslands().size();
+        howManyIslandsNonescounter = game.getNeutralIslands().size();
+    }
+}
