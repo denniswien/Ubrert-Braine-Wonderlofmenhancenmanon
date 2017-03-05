@@ -295,12 +295,9 @@ class SpecialStrategy implements Strategy {
 
     private void sendDrones() {
         for (Drone drone : game.getMyLivingDrones()) {
-            if (game.getMyCities().size() > 0 and game.getNeutralCities().size() > 0){
-                
-            }
             if (game.getMyCities().isEmpty()) {
                 Mover.moveAircraftToClosest(drone, game.getNeutralCities(), 1, game);
-            } else if (game.getMyCities().size() > 0 and game.getNeutralCities().size() > 0) {
+            } else if (game.getMyCities().size() > 0 && game.getNeutralCities().size() > 0) {
                 Mover.moveAircraftToClosest(drone, game.getNeutralCities(), 1, game);
             }else{
                 Mover.moveAircraftToClosest(drone, game.getMyCities(), 1, game);
