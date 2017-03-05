@@ -28,13 +28,17 @@ class SpecialStrategy implements Strategy {
     //TODO: decide when we should defend Cities or attack islands or do anything else, to make it smarter
     // sendToCities HAS to be on top of sendToNotAsIslands or else it will not work properly
     private void prioritiesActions(List<Pirate> myLivingPirates) {
-        //evade(myLivingPirates);
+        evade(myLivingPirates);
+        game.debug(myLivingPirates);
         if (!game.getNotMyIslands().isEmpty()) {
             defendCities(myLivingPirates);
+            game.debug(myLivingPirates);
             sendToNotAsIslands(myLivingPirates);
+            game.debug(myLivingPirates);
         } else {
             //defendMyIslands(myLivingPirates);
             attack(myLivingPirates);
+            game.debug(myLivingPirates);
         }
     }
 
@@ -291,9 +295,14 @@ class SpecialStrategy implements Strategy {
 
     private void sendDrones() {
         for (Drone drone : game.getMyLivingDrones()) {
+            if (game.getMyCities().size() > 0 and game.getNeutralCities().size() > 0){
+                
+            }
             if (game.getMyCities().isEmpty()) {
                 Mover.moveAircraftToClosest(drone, game.getNeutralCities(), 1, game);
-            } else {
+            } else if (game.getMyCities().size() > 0 and game.getNeutralCities().size() > 0) {
+                Mover.moveAircraftToClosest(drone, game.getNeutralCities(), 1, game);
+            }else{
                 Mover.moveAircraftToClosest(drone, game.getMyCities(), 1, game);
             }
 
