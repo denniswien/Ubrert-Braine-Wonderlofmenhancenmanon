@@ -4,6 +4,7 @@ import java.util.List;
 import pirates.*;
 
 class History {
+    static ArrayList<List<Pirate>> enemyPirates = new ArrayList<>();
     private List<List<Location>> enemysPiratesLocation;
     private List<List<Integer>> enemysPiratesHealth;
     public History(PirateGame game)
@@ -22,6 +23,7 @@ class History {
             thisTurnEnemyPiratesHealth.add(pirate.currentHealth);
             
         }
+        enemyPirates.add(game.getAllEnemyPirates());
     }
     public List<Location> getEnemyPiratesLocatin(int turn)//return copy
     {
@@ -38,5 +40,29 @@ class History {
             copy.add(i);
         }
         return copy;
+    }
+    
+    static boolean isEnemyPirateStateNothing(PirateGame game, Pirate pirate) {
+        int id = getPirateId(game, pirate);
+        for (List<Pirate> enemyPirate : enemyPirates) {
+            if (enemyPirate.get(id).getLocation().compareTo(enemyPirate.get(id).initialLocation) != 0) {
+                return false;
+            }
+        }
+        game.debug("true");
+        return true;
+    }
+    
+    static int getPirateId(PirateGame game, Pirate pirate) {
+        int id = 0;
+        for (List<Pirate> pirateList : enemyPirates) {
+            for (Pirate p : pirateList) {
+
+                if (p.id == pirate.id) {
+                    id = p.id;
+                }
+            }
+        }
+        return id;
     }
 }
