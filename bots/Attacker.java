@@ -1,14 +1,8 @@
 package bots;
-import java.util.*
-import pirates.game.*
-import java.lang.Math
-import java.lang.reflect
-import java.lang.class
-import java.math
-
+import pirates.*;
 
 class Attacker {
-    /**
+	/**
     * Makes the pirate try to attack. Returns true if it did.
     *
     * @param pirate - the attacking pirate
@@ -23,13 +17,24 @@ class Attacker {
                 // Fire!
                 game.attack(pirate, enemy);
                 // Print a message
-                game.debug("pirate " + pirate + " attacks " + enemy);
+                //game.debug("pirate " + pirate + " attacks " + enemy);
                 // Did attack
                 return true;
             }
         }
-
         // Didn't attack
+        return false;
+    }
+    
+    static boolean tryAttackDrones(Pirate pirate,PirateGame game){
+        if (!game.getEnemyLivingDrones().isEmpty()){
+            for (Drone drone : game.getEnemyLivingDrones()){
+                if (pirate.inAttackRange(drone)){
+                    game.attack(pirate,drone);
+                    return true;
+                }
+            }
+        }
         return false;
     }
 }
